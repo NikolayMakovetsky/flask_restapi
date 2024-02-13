@@ -1,4 +1,5 @@
 from flask import Flask
+from random import choice
 
 app = Flask(__name__)
 
@@ -72,7 +73,12 @@ def get_count():
     """return count of quotes"""
     num = len(quotes)
     return {"count": num}
+
         
+@app.route('/quotes/random')
+def get_rnd_qoute():
+    """return random quote"""
+    return choice(quotes)
 
 
 if __name__ == "__main__":
