@@ -7,11 +7,18 @@ app = Flask(__name__)
 def hello_world():
     return "Hello, World!"
 
+
 about_me = {
    "name": "Николай",
    "surname": "Маковецкий",
    "email": "nicholasmakovetsky@gmail.com"
 }
+
+
+@app.route("/about")
+def about():
+   return about_me
+
 
 quotes = [
    {
@@ -38,10 +45,9 @@ quotes = [
 ]
 
 
-
-@app.route("/about")
-def about():
-   return about_me
+@app.route("/quotes")
+def get_qoute():
+   return quotes
 
 
 if __name__ == "__main__":
